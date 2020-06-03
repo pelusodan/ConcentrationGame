@@ -33,16 +33,6 @@ class ViewController: UIViewController {
         flipCount += 1
         flipCountLabel.text = "Flip Count: \(flipCount)"
     }
-//    func flipCard(withEmoji emoji: String, on button: UIButton){
-//        if button.currentTitle == emoji {
-//            button.setTitle("", for: UIControl.State.normal)
-//            button.backgroundColor = #colorLiteral(red: 0.1960784314, green: 0.8431372549, blue: 0.2941176471, alpha: 1)
-//        } else {
-//            button.setTitle(emoji, for: UIControl.State.normal)
-//            button.backgroundColor = #colorLiteral(red: 0.1960784314, green: 0.8431372549, blue: 0.2941176471, alpha: 1)
-//        }
-//
-//    }
         
     func updateViewFromModel() {
         for index in cardButtons.indices {
@@ -68,6 +58,12 @@ class ViewController: UIViewController {
             emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
         }
         return emoji[card.identifier] ?? "?"
+    }
+    @IBAction func newGameClick(_ sender: UIButton) {
+        game.reset()
+        flipCount = 0
+        // update the UI to match
+        updateViewFromModel()
     }
 }
 

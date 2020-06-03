@@ -41,4 +41,11 @@ class Concentration {
             indexOfOneAndOnlyFaceUpCard = index
         }
     }
+    
+    func reset() {
+        for i in cards.indices {
+            cards[i].isFacedUp = false
+            cards[i].isMatched = false
+        }
+    }
 }
