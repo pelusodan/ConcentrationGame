@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    lazy var game: Concentration = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+    lazy var game: Concentration = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2,
+                                                 themes: [Theme.ANIMALS,Theme.FRUIT,Theme.PEOPLE,Theme.TECH, Theme.APPLE,Theme.WORKERS,Theme.SPORTBALL])
 
     // FlipCount stuff
     @IBOutlet weak var flipCountLabel: UILabel!
@@ -39,7 +40,7 @@ class ViewController: UIViewController {
             let button = cardButtons[index]
             let card = game.cards[index]
             if card.isFacedUp {
-               button.setTitle(emoji(for: card), for: UIControl.State.normal)
+                button.setTitle(game.emoji(for: card), for: UIControl.State.normal)
                 button.backgroundColor = #colorLiteral(red: 0.1960784314, green: 0.8431372549, blue: 0.2941176471, alpha: 1)
             } else {
                 button.setTitle("", for: UIControl.State.normal)
@@ -47,17 +48,6 @@ class ViewController: UIViewController {
             }
             
         }
-    }
-    
-    var emojiChoices = ["🎧","🍖","🍏","🍓","🍋","🍎","🥑","🍒"]
-    var emoji = [Int:String]()
-    
-    func emoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, emojiChoices.count > 0{
-            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
-            emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
-        }
-        return emoji[card.identifier] ?? "?"
     }
     @IBAction func newGameClick(_ sender: UIButton) {
         game.reset()
