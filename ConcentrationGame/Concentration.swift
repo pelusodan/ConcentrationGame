@@ -19,7 +19,8 @@ class Concentration {
             let card = Card()
             cards += [card, card]
         }
-        // TODO: Shuffle the cards
+        // easy peasy thanks to the shuffle function
+        cards.shuffle()
     }
     
     func chooseCard(at index: Int) {
@@ -47,5 +48,7 @@ class Concentration {
             cards[i].isFacedUp = false
             cards[i].isMatched = false
         }
+        // to yet again randomize the order
+        cards.shuffle()
     }
 }
