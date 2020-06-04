@@ -9,5 +9,5 @@ and the XCode developing platform as a whole.
 
 ## Status:
 
-Right now I've got some simple cards you can flip with emojis, as well as a basic live counter of how many 'flips' the user 
-has incurred.
+The game is currently working! I've added in 6 new themes, from which a random one will be chosen at the beginning of the
+new game. The flip counter resets with a new game. 
