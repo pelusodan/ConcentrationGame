@@ -13,11 +13,17 @@ class ViewController: UIViewController {
     lazy var game: Concentration = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2,
                                                  themes: [Theme.ANIMALS,Theme.FRUIT,Theme.PEOPLE,Theme.TECH, Theme.APPLE,Theme.WORKERS,Theme.SPORTBALL])
 
-    // FlipCount stuff
+    // FlipCount and Score labels
     @IBOutlet weak var flipCountLabel: UILabel!
     var flipCount = 0 {
         didSet {
             flipCountLabel.text = "Flip Count: \(flipCount)"
+        }
+    }
+    @IBOutlet weak var scoreLabel: UILabel!
+    var score = 0 {
+        didSet {
+            scoreLabel.text = "Score : \(score)"
         }
     }
     
@@ -34,7 +40,13 @@ class ViewController: UIViewController {
         flipCount += 1
         flipCountLabel.text = "Flip Count: \(flipCount)"
     }
-        
+    @IBAction func newGameClick(_ sender: UIButton) {
+        game.reset()
+        // update the UI to match
+        updateViewFromModel()
+    }
+    
+    // to keep the view updated to game
     func updateViewFromModel() {
         for index in cardButtons.indices {
             let button = cardButtons[index]
@@ -46,14 +58,9 @@ class ViewController: UIViewController {
                 button.setTitle("", for: UIControl.State.normal)
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.1960784314, green: 0.8431372549, blue: 0.2941176471, alpha: 0): #colorLiteral(red: 0.1960784314, green: 0.8431372549, blue: 0.2941176471, alpha: 1)
             }
-            
         }
-    }
-    @IBAction func newGameClick(_ sender: UIButton) {
-        game.reset()
-        flipCount = 0
-        // update the UI to match
-        updateViewFromModel()
+        // so our views stay active
+        (score, flipCount) = game.getScoreAndFlipCount()
     }
 }
 
