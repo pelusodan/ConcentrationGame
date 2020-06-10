@@ -16,11 +16,11 @@ struct Theme {
         self.emojiChoices = emojiChoices
     }
     
-    static var FRUIT = Theme(emojiChoices: ["🍏","🍎","🍋","🍒"])
-    static var PEOPLE = Theme(emojiChoices: ["😇","😖","😍","🤓"])
-    static var ANIMALS = Theme(emojiChoices: ["🐶","🐹","🐸","🐥"])
-    static var WORKERS = Theme(emojiChoices: ["👮‍♂️","👨‍🔧","👩‍🌾","👩‍✈️"])
-    static var APPLE = Theme(emojiChoices: ["💻","📱","🖥","⌚️"])
-    static var TECH = Theme(emojiChoices: ["💾","📺","📡","⚙️"])
-    static var SPORTBALL = Theme(emojiChoices: ["⚽️","🏀","🏈","⚾️"])
+    static var FRUIT = Theme(emojiChoices: ["🍏","🍎","🍋","🍒","🍑","🍉"])
+    static var PEOPLE = Theme(emojiChoices: ["😇","😖","😍","🤓","😎","😗"])
+    static var ANIMALS = Theme(emojiChoices: ["🐶","🐹","🐸","🐥","🐙","🐷"])
+    static var WORKERS = Theme(emojiChoices: ["👮‍♂️","👨‍🔧","👩‍🌾","👩‍✈️","👨‍🎓","🧑‍🎤"])
+    static var APPLE = Theme(emojiChoices: ["💻","📱","🖥","⌚️","⌨️","🖱"])
+    static var TECH = Theme(emojiChoices: ["💾","📺","📡","⚙️","🎛","🔌"])
+    static var SPORTBALL = Theme(emojiChoices: ["⚽️","🏀","🏈","⚾️","🥎","🏐"])
 }
