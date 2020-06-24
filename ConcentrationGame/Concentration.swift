@@ -62,16 +62,13 @@ class Concentration {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
                     score += 2
-                } else {
-                    // neither cards match
-                    for flipDownIndex in cards.indices {
-                        cards[flipDownIndex].isFacedUp = false
-                    }
+                    
+                }
+                cards[index].isFacedUp = true
+            } else {
+                    indexOfOneAndOnlyFaceUpCard = index
                     score -= 1
                 }
-            }
-            cards[index].isFacedUp = true
-            indexOfOneAndOnlyFaceUpCard = index
             flipCount += 1
         }
         
