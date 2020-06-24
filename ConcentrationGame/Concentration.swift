@@ -11,7 +11,27 @@ import Foundation
 class Concentration {
     
     var cards = [Card]()
-    var indexOfOneAndOnlyFaceUpCard: Int?
+    var indexOfOneAndOnlyFaceUpCard: Int? {
+        get {
+            var foundIndex: Int?
+            for index in cards.indices {
+                if cards[index].isFacedUp {
+                    if foundIndex == nil {
+                        foundIndex = index
+                    }
+                    else {
+                        return nil
+                    }
+                }
+            }
+            return foundIndex
+        }
+        set {
+            for index in cards.indices {
+                cards[index].isFacedUp = (index == newValue)
+            }
+        }
+    }
     var themes = [Theme]()
     private var emojiDict = [Int:String]()
     // for saving theme we will be removing from
